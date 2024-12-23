@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+// This would typically come from a database or CMS
+const projects = [
+  {
+    title: 'E-commerce Platform',
+    description: 'A full-stack e-commerce platform built with Next.js and Stripe',
+    image: '/projects/project1.jpg',
+    tags: ['Next.js', 'Stripe', 'Tailwind CSS', 'PostgreSQL'],
+    githubUrl: 'https://github.com',
+    liveUrl: 'https://example.com',
+  },
+  {
+    title: 'Task Management App',
+    description: 'A collaborative task management application with real-time updates',
+    image: '/projects/project2.jpg',
+    tags: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    githubUrl: 'https://github.com',
+    liveUrl: 'https://example.com',
+  },
+  {
+    title: 'AI Image Generator',
+    description: 'An AI-powered image generation tool using DALL-E API',
+    image: '/projects/project3.jpg',
+    tags: ['OpenAI', 'React', 'Express', 'AWS'],
+    githubUrl: 'https://github.com',
+    liveUrl: 'https://example.com',
+  },
+];
+---
+
+<Layout title="Projects - Portfolio">
+  <Nav slot="header" />
+
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
+          My Projects
+        </h1>
+        <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">
+          Here are some of my featured projects. Each one is crafted with attention to detail and best practices.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+            <div class="aspect-video bg-gray-200 dark:bg-gray-700">
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover"
+                />
+              )}
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                {project.title}
+              </h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-300">
+                {project.description}
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div class="mt-6 flex gap-4">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
+                >
+                  View Code
+                </a>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                >
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</Layout> 

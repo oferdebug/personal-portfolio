@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Your Name - Portfolio">
+  <Nav slot="header" />
+  
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-8">
+          Ofer Cohen, An Israeli Full-Stack Developer & Designer
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">
+          I create beautiful, functional, and user-friendly digital experiences.
+          Specialized in building modern web applications with cutting-edge technologies.
+        </p>
+        <div class="flex justify-center gap-4">
+          <a
+            href="/projects"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            View Projects
+          </a>
+          <a
+            href="/contact"
+            class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        Featured Skills
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {
+          ['React', 'Node.js', 'TypeScript', 'PostgreSQL'].map((skill) => (
+            <div class="text-center">
+              <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                  {skill}
+                </h3>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout> 
